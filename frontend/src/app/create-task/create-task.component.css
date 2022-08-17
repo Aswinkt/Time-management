@@ -1,0 +1,25 @@
+.left-side-bar {
+    background-color: #25274E;
+}
+.right-side {
+    background-color: #F5F6FF;
+}
+.dashboard {
+    background-color: #E4E5FE;
+    padding: 30px;
+}
+.link-color {
+    color: whitesmoke;
+}
+.dashboard-head {
+    text-align: justify;
+}
+.btn-size {
+    width: 100%;
+    margin: 2px;
+    background-color: #25274E;
+    color: whitesmoke;
+}
+.input-size {
+    margin: 5px;
+}

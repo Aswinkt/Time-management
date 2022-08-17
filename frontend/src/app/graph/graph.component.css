@@ -1,0 +1,21 @@
+.dashchart {
+    width: 100%;
+    height: 400px;
+}
+
+.left-side-bar {
+    background-color: #25274E;
+}
+.right-side {
+    background-color: lightskyblue;
+}
+.dashboard {
+    background-color: #E4E5FE;
+    padding: 30px;
+}
+.link-color {
+    color: whitesmoke;
+}
+.dashboard-head {
+    text-align: justify;
+}

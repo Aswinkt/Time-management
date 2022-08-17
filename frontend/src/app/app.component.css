@@ -1,0 +1,22 @@
+
+.outer {
+    background-color: #ffdfd8;
+    width: 100%;
+    padding: 40px;
+}
+.inner {
+    background-color: #faf7ef;
+    width: 100%;
+}
+
+.link-color {
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.nav-icon-size {
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+
+}

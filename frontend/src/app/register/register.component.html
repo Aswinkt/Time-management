@@ -1,0 +1,92 @@
+<div class="container-fluid outer-main">
+    <div class="container main">
+        <div class="container inner-main p-3">
+            <h1 class="login-head"><i>Register here !</i></h1>
+        
+            <!--Login Form-->
+            <form [formGroup]="userData" (ngSubmit)="register()" class="form-size">
+                <div class="row">
+                    <div class="col-12 p-2">
+                        <label>First Name</label>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" placeholder="Enter your first name" formControlName="firstName"class="form-control input-size">
+                        <span class="text-danger" *ngIf="firstName && firstName.invalid && firstName.touched">Please enter a valid name</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 p-2">
+                        <label>Last Name</label>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" placeholder="Enter your last name" formControlName="lastName"class="form-control input-size">
+                        <span class="text-danger" *ngIf="lastName && lastName.invalid && lastName.touched">Please enter a valid name</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 p-2">
+                        <label>Username</label>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" placeholder="Enter username" formControlName="userName"class="form-control input-size">
+                        <span class="text-danger" *ngIf="userName && userName.invalid && userName.touched">Please enter a valid username</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 p-2">
+                        <label>Password</label>
+                    </div>
+                    <div class="col-12 p-2">
+                        <input type="text" placeholder="Enter password" formControlName="password" class="form-control input-size">
+                        <span class="text-danger" *ngIf="password && password.invalid && password.touched">Please enter a strong password</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 p-2">
+                        <label>User Id</label>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" placeholder="Enter user id" formControlName="userId"class="form-control input-size">
+                        <span class="text-danger" *ngIf="userId && userId.invalid && userId.touched">Please enter a valid id</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 p-2">
+                        <label>Type</label>
+                    </div>
+                    <div class="col-12">
+                        <select type="text" placeholder="Enter user id" formControlName="type"class="form-control input-size">
+                            <option value="EMPLOYEE">Employee</option>
+                            <option value="MANAGER">Manager</option>                          
+                        </select>
+                        <span class="text-danger" *ngIf="userId && userId.invalid && userId.touched">Please enter a valid id</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 p-2">
+                        <label>Department</label>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" placeholder="Enter your department" formControlName="department"class="form-control input-size">
+                        <span class="text-danger" *ngIf="department && department.invalid && department.touched">Please enter a valid department</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 p-2">
+                        <label>Designation</label>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" placeholder="Enter your designation" formControlName="designation"class="form-control input-size">
+                        <span class="text-danger" *ngIf="designation && designation.invalid && designation.touched">Please enter a valid designation</span>
+                    </div>
+                </div>
+                
+                <div class="row ">
+                    <div class="col-12 p-2">
+                        <button type="submit" class="form-control btn btn-primary input-size">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

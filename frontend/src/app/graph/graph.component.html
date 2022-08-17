@@ -1,0 +1,43 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div class="container-fluid dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 left-side-bar">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <img src="assets\images\dashboardImage.png" alt="dashboard-icon" width="180px" height="180px">
+                  </li>
+                    <li class="nav-item">
+                      <a class="nav-link link-color" href="#" [routerLink]="['/manager/dashboard']">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link link-color" href="#" [routerLink]="['/task/details']">Task details</a>
+                    </li>
+                  </ul>
+                  
+            </div>
+            <div class="col-10 right-side">
+                <div style="width:600px;height:600px">
+                    <chart class="dashchart" [type]="type" [data]="data" 
+                    [options]="options"></chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

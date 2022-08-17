@@ -1,0 +1,106 @@
+<div class="container-fluid dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 left-side-bar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a class="nav-link link-color" href="#" [routerLink]="['/user/dashboard']">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link link-color" href="#" [routerLink]="['/task/details']">Task details</a>
+                    </li>
+                  </ul>
+            </div>
+            <div class="col-10 right-side">
+                    <!--Create Task Form-->
+                    <form [formGroup]="taskData" (ngSubmit)="submit()" class="form-size">
+                        <div class="row mt-2">
+                            <div class="col-12">
+                                <label>Task Id</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" formControlName="taskId" placeholder="Enter task id" class="form-control input-size">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Task Name</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" formControlName="taskName" placeholder="Enter task name" class="form-control input-size">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Task Status</label>
+                            </div>
+                            <div class="col-12">
+                                <select formControlName="taskStatus" class="form-control input-size">
+                                    <option value="Completed">Completed</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Ongoing" selected>Ongoing</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Start Time</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="datetime-local" formControlName="startTime" class="form-control input-size">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>End Time</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="datetime-local" formControlName="endTime" class="form-control input-size">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Created Date</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="date" formControlName="createdDate" class="form-control input-size">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Approval Status</label>
+                            </div>
+                            <div class="col-12">
+                                <select formControlName="approvalStatus" class="form-control input-size">
+                                    <option value="Approved">Approved</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Rejected" selected>Rejected</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Assigned Manager</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" formControlName="assignedManager" class="form-control input-size">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Task Description</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" formControlName="taskDescription" class="form-control input-size">
+                            </div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-12">
+                                <button class="btn btn-size">Submit</button>
+                            </div>
+                        </div>        
+                    </form>    
+            </div>
+        </div>
+    </div>
+</div>

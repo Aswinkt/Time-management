@@ -1,0 +1,41 @@
+## BACKEND
+# create venv
+ python -m venv venv_name
+
+# activate venv
+venv_name\Scripts\activate
+
+# install django
+pip install django
+
+# install django_rest_framework
+pip install djangorestframework
+
+# install django-cors-headers
+pip install django-cors-headers
+
+# cd backend
+
+# run the django project
+python manage.py runserver
+
+
+## FRONTEND
+
+# install angular CLI
+npm install -g @angular/cli
+
+# install angular2-chartjs
+npm install angular2-chartjs@0.5.1
+
+# install bootstrap
+npm install bootstrap@5.1.3
+
+# cd frontend
+
+# run the project
+ng serve
+
+
+
+

@@ -1,0 +1,163 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid dashboard">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-2 left-side-bar">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <img src="assets\images\dashboardImage.png" alt="dashboard-icon" width="180px" height="180px">
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link link-color" href="#" [routerLink]="['/create/task']">Create task</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link link-color" href="#" [routerLink]="['/task/details']">Task details</a>
+                  </li>
+                </ul>
+                
+          </div>
+            <div class="col-10 right-side">
+              <h3 class="dashboard-head">User Dashboard</h3>
+              <div class="container-flud">
+                <div class="fw-bold text-center container-fluid form-group pb-3">
+                    <input type="text" class="form-control p-2" 
+                [(ngModel)]="searchTerm" placeholder="Search here" >
+                </div>
+              <div>
+                <div *ngIf="taskById">
+                  <form #updateTask="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col-12">
+                            <label>Task Id</label>
+                        </div>
+                        <div class="col-12">
+                            <input type="text" name="taskId" class="form-control input-size" #taskId="ngModel" [(ngModel)]="taskById.task_id" required>
+                            <span class="text-danger" *ngIf="taskId && taskId.invalid && taskId.touched">Please enter a valid Id !</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label>Task Name</label>
+                        </div>
+                        <div class="col-12">
+                            <input type="email" name="taskName" class="form-control input-size" #taskName="ngModel" [(ngModel)]="taskById.task_name" required>
+                            <span class="text-danger" *ngIf="taskName && taskName.invalid && taskName.touched">Please enter a valid name !</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label>Task Status</label>
+                        </div>
+                        <div class="col-12">
+                            <select name="taskStatus" class="form-control input-size" #taskStatus ="ngModel" pattern="^[A-Za-z][A-Za-z ]+$" [(ngModel)]="taskById.task_status" required>
+                              <option value="Completed">Completed</option>
+                              <option value="Ongoing">Ongoing</option>
+                              <option value="Pending">Pending</option>
+                            </select>
+                            <span class="text-danger" *ngIf="taskStatus && taskStatus.invalid && taskStatus.touched">Please enter a valid status !</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label>Start Time</label>
+                        </div>
+                        <div class="col-12">
+                            <input type="text" name="startTime" class="form-control input-size" #startTime ="ngModel"  [(ngModel)]="taskById.start_time" required>
+                            <span class="text-danger" *ngIf="startTime && startTime.invalid && startTime.touched">Please enter a valid time !</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                          <label>End Time</label>
+                      </div>
+                      <div class="col-12">
+                          <input type="text" name="endTime" class="form-control input-size" #endTime ="ngModel"  [(ngModel)]="taskById.end_time" required>
+                          <span class="text-danger" *ngIf="endTime && endTime.invalid && endTime.touched">Please enter a valid time !</span>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                        <label>Created Date</label>
+                    </div>
+                    <div class="col-12">
+                        <input type="text" name="approvalStatus" class="form-control input-size" #createdDate ="ngModel"  [(ngModel)]="taskById.created_date" required>
+                        <span class="text-danger" *ngIf="createdDate && createdDate.invalid && createdDate.touched">Please enter a valid time !</span>
+                    </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-12">
+                    <label>Assigned Manager</label>
+                  </div>
+                  <div class="col-12">
+                    <input type="text" name="assignedManager" class="form-control input-size" #assignedManager ="ngModel"  [(ngModel)]="taskById.assigned_manager" required>
+                    <span class="text-danger" *ngIf="assignedManager && assignedManager.invalid && assignedManager.touched">Please enter a valid name !</span>
+                  </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-12">
+                    <label>Task Description</label>
+                  </div>
+                  <div class="col-12">
+                    <input type="text" name="taskDescription" class="form-control input-size" #taskDescription ="ngModel"  [(ngModel)]="taskById.task_description" required>
+                    <span class="text-danger" *ngIf="taskDescription && taskDescription.invalid && taskDescription.touched">Please enter a valid Description !</span>
+                  </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-size">Submit</button>
+                  </div>
+                  </div>
+            </form>
+                </div>
+                <div>
+                  <!--Table to display data from local api-->
+                  <table class="table table-dark table-borderless">
+                      <thead>
+                        <tr>
+                          <th scope="col">Task ID</th>
+                          <th scope="col">Task Name</th>
+                          <th scope="col">Task Status</th>
+                          <th scope="col">Start Time</th>
+                          <th scope="col">End Time</th>
+                          <th scope="col">Created Date</th>
+                          <th scope="col">Approval Status</th>
+                          <th scope="col">Assigned Manager</th>
+                          <th scope="col">Task Description</th>
+                          <th scope="col">Edit Task</th>
+                          <th scope="col">Delete Task</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let task of this.comp.task">
+                             <td>{{task.task_id}}</td>
+                             <td>{{task.task_name}}</td>
+                             <td>{{task.task_status}}</td>
+                             <td>{{task.start_time}}</td>
+                             <td>{{task.end_time}}</td>
+                             <td>{{task.created_date}}</td>
+                             <td>{{task.approval_status}}</td>
+                             <td>{{task.assigned_manager}}</td>
+                             <td>{{task.task_description}}</td>
+                             <td><button type="button" class="btn btn-success" (click)="edit(task.task_id)">Edit</button></td>
+                             <td><button type="button" class="btn btn-danger" (click)="remove(task.task_id)">Delete</button></td>
+                          </tr>
+                      </tbody>
+                    </table>
+              </div>
+            </div>
+      </div>
+</div>

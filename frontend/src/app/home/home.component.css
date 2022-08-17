@@ -1,0 +1,21 @@
+
+.outer-main {
+    background-color: blanchedalmond;
+    width: 100%;
+    padding: 50px;
+
+}
+
+.inner-main {
+    background-color: whitesmoke;
+    width: 100%;
+    padding: 50px;
+
+}
+
+.main {
+    background-color: lightskyblue;
+    width: 100%;
+    padding: 50px;
+
+}

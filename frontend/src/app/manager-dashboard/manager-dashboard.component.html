@@ -1,0 +1,101 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">User Name</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div class="container-fluid dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 left-side-bar">
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                    <img src="assets\images\dashboardImage.png" alt="dashboard-icon" width="180px" height="180px">
+                  </li>
+                    <li class="nav-item">
+                      <a class="nav-link link-color" href="#" [routerLink]="['/task/details']">Task details</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link link-color" href="#" [routerLink]="['/manager/dashboard/graph']">View Graph</a>
+                    </li>
+                  </ul>
+                  
+            </div>
+            <div class="col-10 right-side">
+                <h3 class="dashboard-head">Manager Dashboard</h3>
+                  <div class="container-flud">
+                    <div class="fw-bold text-center container-fluid form-group pb-3">
+                      <input type="text" class="form-control p-2" 
+                  [(ngModel)]="searchTerm" placeholder="Search here" >
+                  </div>
+                </div>
+                <div *ngIf="taskById">
+                  <form #approveTask="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                      <div class="col-12">
+                          <label>Approval Status</label>
+                      </div>
+                      <div class="col-12">
+                          <select name="approvalStatus" class="form-control input-size" #approvalStatus ="ngModel"  [(ngModel)]="taskById.approval_status" required>
+                            <option value="Approved">Approve</option>
+                            <option value="Rejected">Reject</option>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12">
+                        <button type="submit" class="btn btn-size">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div>
+                  <!--Table to display data from local api-->
+                  <table class="table table-dark table-borderless">
+                      <thead>
+                        <tr>
+                          <td scope="row">Sl No.</td>
+                          <th scope="col">Task ID</th>
+                          <th scope="col">Task Name</th>
+                          <th scope="col">Task Status</th>
+                          <th scope="col">Start Time</th>
+                          <th scope="col">End Time</th>
+                          <th scope="col">Created Date</th>
+                          <!--th scope="col">Approval Status</th-->
+                          <th scope="col">Assigned Manager</th>
+                          <th scope="col">Task Description</th>
+                          <th scope="col">Approve or Reject</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let task of this.comp.task | searchFilter: searchTerm; index as i">
+                            <td scope="row">{{ i + 1 }}</td>
+                             <td>{{task.task_id}}</td>
+                             <td>{{task.task_name}}</td>
+                             <td>{{task.task_status}}</td>
+                             <td>{{task.start_time}}</td>
+                             <td>{{task.end_time}}</td>
+                             <td>{{task.created_date}}</td>
+                             <!--td>{{task.approval_status}}</td-->
+                             <td>{{task.assigned_manager}}</td>
+                             <td>{{task.task_description}}</td>
+                             <td><button type="button" class="btn btn-success" (click)="action(task.task_id)">Action</button></td>
+                          </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
